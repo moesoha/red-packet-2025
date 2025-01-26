@@ -6,7 +6,6 @@
   SKUID_IDENTIFIER        = DEFAULT
   SUPPORTED_ARCHITECTURES = X64
   BUILD_TARGETS           = DEBUG|RELEASE
-  FLASH_DEFINITION        = Hongbao2025Pkg/Hongbao2025Pkg.fdf
   OUTPUT_DIRECTORY        = Build/Hongbao2025Pkg
 
 [LibraryClasses]
