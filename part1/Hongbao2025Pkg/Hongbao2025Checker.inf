@@ -1,0 +1,33 @@
+[Defines]
+  INF_VERSION         = 0x00010005
+  BASE_NAME           = Hongbao2025Checker
+  FILE_GUID           = 7ddc6139-09a1-48be-b6c9-a38e0dd2ad72
+  MODULE_TYPE         = UEFI_APPLICATION
+  VALID_ARCHITECTURES = X64
+  VERSION_STRING      = 1.0
+  ENTRY_POINT         = ShellCEntryLib
+
+
+[Sources]
+  Hongbao2025Checker.c
+  xxHash/xxhash.h
+  xxHash/xxhash.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+  StdLib/StdLib.dec
+
+[LibraryClasses]
+  DebugLib
+  UefiLib
+  UefiRuntimeServicesTableLib
+  BaseLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  ShellCEntryLib
+  LibStdLib
+  LibStdio
+
+[BuildOptions]
+  GCC:*_*_X64_CC_FLAGS = -DXXH_NO_XXH3 -DXXH_NO_STDLIB

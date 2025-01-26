@@ -1,0 +1,33 @@
+[Defines]
+  INF_VERSION         = 0x00010005
+  BASE_NAME           = Hongbao2025Setter
+  FILE_GUID           = 0b52dabd-9a24-4b50-8ae5-09f616e62b4c
+  MODULE_TYPE         = UEFI_APPLICATION
+  VALID_ARCHITECTURES = X64
+  VERSION_STRING      = 1.0
+  ENTRY_POINT         = ShellCEntryLib
+
+
+[Sources]
+  Hongbao2025Setter.c
+  xxHash/xxhash.h
+  xxHash/xxhash.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+  StdLib/StdLib.dec
+
+[LibraryClasses]
+  DebugLib
+  UefiLib
+  UefiRuntimeServicesTableLib
+  BaseLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  ShellCEntryLib
+  LibStdLib
+  LibStdio
+
+[BuildOptions]
+  GCC:*_*_X64_CC_FLAGS = -DXXH_NO_XXH3 -DXXH_NO_STDLIB
