@@ -1,0 +1,9 @@
+auto hb-eth
+iface hb-eth inet6 manual
+	pre-up    ip          link  add link eth0 name $IFACE type ipvlan mode l2
+	pre-up    ip          link  set $IFACE netns hb
+	up        ip -n hb    link  set $IFACE up || true
+	post-down ip -n hb    link  del $IFACE || true
+	post-up   ip -n hb -6 route add dev $IFACE default via fe80::feee:ffff:feff:ffff || true
+	post-up   ip -n hb -6 addr  add dev $IFACE 2402:4e00:1801:ef0c:0:9e11:82c3:2531/128
+	post-up   ip netns exec hb /etc/nftables.conf || true

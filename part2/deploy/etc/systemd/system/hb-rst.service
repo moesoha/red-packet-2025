@@ -1,0 +1,15 @@
+[Unit]
+Description=RedPacket 2025 TCP-RST
+BindsTo=netns@hb.service
+After=network.target netns@hb.service
+JoinsNamespaceOf=netns@hb.service
+
+[Service]
+PrivateNetwork=Yes
+DynamicUser=true
+AmbientCapabilities=CAP_NET_RAW
+ExecStart=/opt/red-packet-2025-part2
+Restart=always
+
+[Install]
+WantedBy=default.target
