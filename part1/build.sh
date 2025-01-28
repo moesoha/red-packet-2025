@@ -8,7 +8,7 @@ build \
 	--tagname=GCC5 \
 	--define=SMM_REQUIRE=FALSE \
 	--pcd=gEfiMdeModulePkgTokenSpaceGuid.PcdEnableVariableRuntimeCache=TRUE \
-	--buildtarget=DEBUG -n 16
+	--buildtarget=RELEASE -n 16
 
 build \
 	--platform=Hongbao2025Pkg/Hongbao2025Pkg.dsc --arch=X64 \
